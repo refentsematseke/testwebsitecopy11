@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FED — For Every Driver Verified</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../mystyles/style.css">
+</head>
+<body>
+  <div class="site">
+    <header class="site-header">
+      <section class="brand">
+        <figure class="logo">
+          <img src="../images/background-logo.png.jpg" alt="FED logo" onerror="this.style.display='none'">
+          
+        </figure>
+        <section class="brand-text">
+          <h1 class="title">FED</h1>
+          <p class="subtitle">For Every Driver Verified</p>
+        </section>
+      </section>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="../pages/home.html"><button class="nav-btn" data-target="home">Home</button></a></li>
+          <li><a href="../pages/verify.html"><button class="nav-btn" data-target="verify">Verify Driver</button></a></li>
+          <li><a href="../pages/report.html"><button class="nav-btn" data-target="report">Report Incident</button></a></li>
+          <li><a href="../pages/about.html"><button class="nav-btn" data-target="about">About FED</button></a></li>
+          <li><a href="../pages/contact.html"><button class="nav-btn" data-target="contact">Contact</button></a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <!-- HOME -->
+      <section id="home" class="page active">
+        <article class="hero">
+          <h2>Welcome to <span class="accent">FED</span></h2>
+          <p class="lead">Verify a driver before you ride, and report incidents to help keep everyone safer.</p>
+          <ul class="hero-actions">
+            <li> <a href="../pages/verify.html"><button class="btn primary" data-target="verify">Verify driver</button></a></li>
+            <li> <a href="../pages/report.html"><button class="btn outline" data-target="report">Report a driver</button></a></li>
+          </ul>
+        </article>
+
+        <ul class="cards">
+          <li>
+            <article class="card">
+              <h3>Quick verify</h3>
+              <p class="muted">Search by name, license plate, or phone number.</p>
+              <section class="search-row">
+                <input id="quickSearch" placeholder="Search name, license, or phone" aria-label="search" />
+                <button id="quickSearchBtn" class="btn primary">Search</button>
+              </section>
+              <div id="quickResult" class="result-box hidden"></div>
+            </article>
+          </li>
+
+          <li>
+            <article class="card">
+              <h3>Latest Notes</h3>
+              <p class="muted">FED demo — data is stored locally in your browser session.</p>
+              <ul class="bullet-list">
+                <li>Please don't abuse reporting — false reports are taken seriously.</li>
+                <li>If unsafe: cancel the ride and contact emergency services.</li>
+                <li>Contact info in Contact page (SAPS & Bolt support).</li>
+              </ul>
+            </article>
+          </li>
+        </ul>
+      </section>
+
+      <!-- VERIFY -->
+      <section id="verify" class="page">
+        <h2>Verify Driver</h2>
+        <form id="verifyForm" class="form-grid" autocomplete="off" onsubmit="return false;">
+          <label for="searchInput">Search (name / license / phone)</label>
+          <input id="searchInput" placeholder="e.g. Thabo Mahlangu or ABC1234 or 0711234567">
+
+          <ul class="small-row">
+            <li><button id="searchBtn" class="btn primary">Search</button></li>
+            <li><button class="btn outline" type="button" id="clearSearch">Clear</button></li>
+          </ul>
+        </form>
+
+        <div id="verifyResult" class="profile-area"></div>
+      </section>
+
+      <!-- REPORT -->
+      <section id="report" class="page">
+        <h2>Report an Incident</h2>
+        <form id="reportForm" class="form" novalidate >
+          <label for="r_name">Driver name</label>
+          <input id="r_name" required>
+
+          <label for="r_phone">Phone number</label>
+          <input id="r_phone" required pattern="^[0-9+ -]{7,20}$">
+
+          <label for="r_license">License plate</label>
+          <input id="r_license" required>
+
+          <label for="r_model">Car model</label>
+          <input id="r_model" required>
+
+          <label for="r_colour">Car colour</label>
+          <input id="r_colour" required>
+
+          <label for="r_desc">Incident description</label>
+          <textarea id="r_desc" rows="5" required></textarea>
+
+          <ul class="form-row">
+            <li><button class="btn primary" id="submitReport" type="submit">Submit report</button></li>
+            <li><button class="btn outline" id="resetReport" type="reset">Reset</button></li>
+          </ul>
+
+          <p id="reportMsg" class="muted small"></p>
+        </form>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="page">
+        <h2>About FED — For Every Driver Verified</h2>
+        <article class="card">
+          <p><strong>Mission:</strong> FED is a safety-focused platform that empowers passengers to confirm driver identity before and during rides.</p>
+          <p><strong>Reporting policy:</strong> FED takes reports seriously. False reporting or malicious submissions are strictly prohibited.</p>
+          <p class="muted">This demo is local-only — in production reports would be stored securely on a server.</p>
+        </article>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="page">
+        <h2>Contact</h2>
+        <article class="card">
+          <ul>
+            <li><strong>SAPS (Emergency):</strong> 10111</li>
+            <li><strong>Bolt Support:</strong> <a href="https://bolt.eu/en/support/" target="_blank" rel="noopener">Bolt Help</a></li>
+            <li><strong>FED Support:</strong> <a href="mailto:support@fed.com">support@fed.com</a></li>
+          </ul>
+          <p class="muted">If you are in immediate danger call emergency services first.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <small>© FED — Demo. Use responsibly.</small>
+    </footer>
+  </div>
+
+  <!-- Stern modal -->
+  <section id="sternModal" class="modal hidden">
+    <div class="modal-inner">
+      <h3>⚠️ Safety Warning</h3>
+      <p>This confirms the driver profile you saw. If anything seems unsafe, do not get in the vehicle. Cancel the ride immediately.</p>
+      <p class="muted">Are you sure you want to proceed?</p>
+      <ul class="modal-actions">
+        <li><button id="modalCancel" class="btn outline">Cancel ride</button></li>
+        <li><button id="modalConfirm" class="btn primary">Proceed</button></li>
+      </ul>
+    </div>
+  </section>
+
+  <script src="../scripts/script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
